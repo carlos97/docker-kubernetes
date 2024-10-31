@@ -1,0 +1,13 @@
+minikube start
+minukube status
+minikube dashboard
+sudo docker build -t img1 .
+docker run -d -p 5000:5000 --restart=always --name registry registry:2
+docker build . -t localhost:5000/img1
+docker push localhost:5000/img1
+kubectl run test --image=localhost:5000/img1
+kubectl create deployment test-dep --image=localhost:5000/img1
+kubectl expose deployment/test-dep --type="NodePort" --port 8080
+kubectl get services
+
+docker run -p 192.168.10.13:5000:1234 --network=host img1
