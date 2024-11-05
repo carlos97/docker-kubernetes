@@ -10,7 +10,52 @@ from werkzeug.routing import BaseConverter
 app = Flask(__name__)
 
 FILE_TEMPLATE = '''
-<a href="/{video_file}">{video_file}</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Enlaces</title>
+    <style>
+        .container {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #E2D8F8;
+            color: black;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+        }
+        a:hover {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body class="container">
+    <h1>Lista de Enlaces</h1>
+    <ul>
+        <li><a href="/{video_file}">{video_file}</a></li>
+    </ul>
+</body>
+</html>
+
 '''
 BASE_DIR = Path('.')
 CHUNK_SIZE = 2 ** 25
