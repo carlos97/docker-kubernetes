@@ -87,3 +87,6 @@ def get_file_mp4(video_file):
                     content_type='video/mp4', direct_passthrough=True)
     resp.headers.add('Content-Range', 'bytes {0}-{1}/{2}'.format(start, start + length - 1, file_size))
     return resp
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
